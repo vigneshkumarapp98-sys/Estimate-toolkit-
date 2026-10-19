@@ -1,0 +1,30 @@
+:root{--bg:#f3f5f8;--card:#fff;--ink:#14202e;--line:#cfd7e1;--acc:#0b5cad;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#1a222c;--ink:#e6edf5;--line:#2f3a47;--acc:#5aa9f0;--bad:#f2807a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif}
+.page{max-width:1100px;margin:0 auto;padding:12px}
+h1{margin:8px 0}h3{margin:14px 0 6px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.bar .title{flex:1;min-width:160px;font-size:1.1rem;font-weight:600}
+button{padding:7px 12px;border-radius:6px;border:1px solid var(--acc);background:transparent;color:var(--acc);font:inherit;cursor:pointer}
+button.primary,.tabs button.on{background:var(--acc);color:var(--card)}
+button.danger,.x{border-color:var(--bad);color:var(--bad)}
+.x{padding:2px 7px}
+button:disabled{opacity:.5;cursor:default}
+input,textarea{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0;padding-bottom:4px}
+.tabs button{white-space:nowrap}
+.grid{display:grid;gap:10px}
+.f{display:grid;gap:3px}.f span{font-size:.85rem;opacity:.8}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;display:grid;gap:8px}
+.tw{overflow-x:auto;display:grid;gap:8px;justify-items:start}
+table{border-collapse:collapse;min-width:100%;background:var(--card)}
+th,td{border:1px solid var(--line);padding:3px 5px;text-align:left;vertical-align:middle}
+td input{min-width:70px;border:0;padding:4px}
+td.calc{font-weight:600;white-space:nowrap}
+.acts{display:flex;gap:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row input{flex:1;min-width:160px}
+.msg{padding:8px 10px;border-radius:6px;background:var(--card);border:1px solid var(--line)}
+.errs{background:var(--card);border:1px solid var(--bad);color:var(--bad);border-radius:6px;padding:8px 8px 8px 26px}
+.note{opacity:.75}
+.json{font-family:ui-monospace,monospace;font-size:.85rem}

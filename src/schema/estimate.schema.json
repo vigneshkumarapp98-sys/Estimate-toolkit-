@@ -1,0 +1,406 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "estimate.schema.json",
+  "title": "Estimate",
+  "type": "object",
+  "definitions": {
+    "materialRow": {
+      "type": "object",
+      "properties": {
+        "desc": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "desc",
+        "qty",
+        "rate",
+        "unit"
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "applicantName": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "scNo": {
+          "type": "string"
+        },
+        "load": {
+          "type": "string"
+        },
+        "estimateCost": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "applicantName",
+        "address",
+        "scNo",
+        "load",
+        "estimateCost"
+      ]
+    },
+    "letter": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "lrNo": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "enclosure": {
+          "type": "string"
+        },
+        "signatory": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "lrNo",
+        "subject",
+        "ref",
+        "body",
+        "enclosure",
+        "signatory"
+      ]
+    },
+    "report": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string"
+        },
+        "pointOfSupply": {
+          "type": "string"
+        },
+        "mainFeatures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string"
+              },
+              "qty": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "item",
+              "qty",
+              "unit"
+            ]
+          }
+        },
+        "loadDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "feeder": {
+                      "type": "string"
+                    },
+                    "agriNos": {
+                      "type": "number"
+                    },
+                    "agriHp": {
+                      "type": "number"
+                    },
+                    "indNos": {
+                      "type": "number"
+                    },
+                    "indHp": {
+                      "type": "number"
+                    },
+                    "domNos": {
+                      "type": "number"
+                    },
+                    "domHp": {
+                      "type": "number"
+                    },
+                    "newNos": {
+                      "type": "number"
+                    },
+                    "newHp": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "feeder",
+                    "agriNos",
+                    "agriHp",
+                    "indNos",
+                    "indHp",
+                    "domNos",
+                    "domHp",
+                    "newNos",
+                    "newHp"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "title",
+              "rows"
+            ]
+          }
+        },
+        "regulationPercent": {
+          "type": "number"
+        },
+        "estimateCostLines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "gross": {
+                "type": "number"
+              },
+              "net": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "label",
+              "gross",
+              "net"
+            ]
+          }
+        },
+        "consumerPaid": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "scope",
+        "pointOfSupply",
+        "mainFeatures",
+        "loadDetails",
+        "regulationPercent",
+        "estimateCostLines",
+        "consumerPaid"
+      ]
+    },
+    "regulation": {
+      "type": "object",
+      "properties": {
+        "feeders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "scNo": {
+                "type": "string"
+              },
+              "loadHp": {
+                "type": "number"
+              },
+              "conductors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "conductor": {
+                      "type": "string"
+                    },
+                    "constant": {
+                      "type": "number"
+                    },
+                    "distance": {
+                      "type": "number"
+                    },
+                    "loadHp": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "conductor",
+                    "constant",
+                    "distance",
+                    "loadHp"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name",
+              "scNo",
+              "loadHp",
+              "conductors"
+            ]
+          }
+        }
+      },
+      "required": [
+        "feeders"
+      ]
+    },
+    "materials": {
+      "type": "object",
+      "properties": {
+        "dismantled": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/materialRow"
+          }
+        },
+        "reusable": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/materialRow"
+          }
+        },
+        "structure": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/materialRow"
+          }
+        },
+        "scrap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/materialRow"
+          }
+        },
+        "bookValue": {
+          "type": "object",
+          "properties": {
+            "lifeYears": {
+              "type": "number"
+            },
+            "servedYears": {
+              "type": "number"
+            },
+            "depreciationRate": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lifeYears",
+            "servedYears",
+            "depreciationRate"
+          ]
+        }
+      },
+      "required": [
+        "dismantled",
+        "reusable",
+        "structure",
+        "scrap",
+        "bookValue"
+      ]
+    },
+    "poles": {
+      "type": "object",
+      "required": [
+        "columns",
+        "rows"
+      ],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "loc",
+              "span"
+            ],
+            "properties": {
+              "loc": {
+                "type": "string"
+              },
+              "span": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "createdAt",
+    "updatedAt",
+    "common",
+    "letter",
+    "report",
+    "regulation",
+    "materials",
+    "poles"
+  ]
+}
